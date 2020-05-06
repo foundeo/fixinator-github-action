@@ -1,0 +1,16 @@
+# action.yml
+name: 'Fixinator Action'
+description: 'Scans your code for CFML / ColdFusion security issues'
+inputs:
+  fixinator_api_key:  # id of input
+    description: 'The fixinator api key'
+    required: true
+    default: ''
+runs:
+  using: 'docker'
+  image: 'docker://foundeo/fixinator:latest'
+  env:
+    FIXINATOR_API_KEY: ${{ inputs.fixinator_api_key }}
+  entrypoint: /opt/box/box
+  args: fixinator
+    
