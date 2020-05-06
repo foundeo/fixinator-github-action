@@ -12,5 +12,6 @@ runs:
   env:
     FIXINATOR_API_KEY: ${{ inputs.fixinator_api_key }}
   entrypoint: /opt/box/box
-  args: fixinator
+  args: 
+    - fixinator
     
