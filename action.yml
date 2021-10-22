@@ -10,7 +10,19 @@ inputs:
   path:
     description: 'The file, folder, or file globber pattern to scan'
     default: '.'
-  
+  confidence:
+    description: 'The confidence level: high, medium or low'
+    default: 'high'
+  severity:
+    description: 'Possible values are: low, medium or high. Filter by severity of the issues found.'
+    default: 'low'
+  ignorePaths:
+    description: 'A file globber pattern of paths to ignore from the scan.'
+    default: ''
+  failOnIssues:
+    description: 'Set to false if you do not want a failing scan to fail the workflow'
+    default: 'true'
+
 runs:
   using: 'docker'
   image: 'docker://ghcr.io/foundeo/fixinator-docker/fixinator:latest'
@@ -20,4 +32,8 @@ runs:
   args: 
     - fixinator
     - path=${{ inputs.path }}
+    - confidence=${{ inputs.confidence }}
+    - severity=${{ inputs.severity }}
+    - ignorePaths=${{ inputs.ignorePaths }}
+    - failOnIssues=${{ inputs.failOnIssues }}
     
