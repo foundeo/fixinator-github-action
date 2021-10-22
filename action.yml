@@ -2,6 +2,9 @@
 name: 'Fixinator Action'
 author: 'Foundeo Inc.'
 description: 'Scans your code for CFML / ColdFusion security issues.'
+branding:
+  icon: 'check-square'
+  color: 'green'
 inputs:
   fixinator_api_key:  # id of input
     description: 'The fixinator api key'
